@@ -53,13 +53,18 @@ export function FirstPhase() {
         ...userData[name],
         errors: newErrors,
         newValue: value,
-      }
+      },
     });
   };
 
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+  }
+
   return (
     <div className="container">
-      <Form>
+      <Form onSubmit={onSubmitHandler}>
         <Form.Group className="mb-3">
           <Form.Label>Enter Full name</Form.Label>
           <Form.Control
@@ -92,16 +97,23 @@ export function FirstPhase() {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Birth date</Form.Label>
-          <Form.Control type="date" name="birth" required onBlur={userValidation}/>
+          <Form.Control
+            type="date"
+            name="birth"
+            required
+            onBlur={userValidation}
+          />
           {userData.birth.errors.map((error, idx) => (
             <Form.Text key={`${idx}`} className="text-danger">
               {error}
             </Form.Text>
           ))}
         </Form.Group>
+        <div className="text-center">
         <Button variant="primary" type="submit">
-    Submit
-  </Button>
+          Submit
+        </Button>
+        </div>
       </Form>
     </div>
   );
