@@ -91,10 +91,6 @@ function Phase2() {
               placeholder="Number"
               onBlur={updateNumValue}
             />
-            {/* {
-                            invalidNumError &&
-                            <Form.Text className="text-danger">{invalidNumError}</Form.Text>
-                        } */}
           </Form.Group>
         </Form>
         <Button variant="primary" type="submit" onClick={saveInfo}>
