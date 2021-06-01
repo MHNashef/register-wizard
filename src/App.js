@@ -1,26 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
-import {FirstPhase} from './FirstPhase'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {NavDropdown, Navbar, Nav, Form, FormControl, Button} from "react-bootstrap";
+import FirstPhase from "./FirstPhase";
+import Phase2 from "./Phase2";
+import Phase3 from "./a-components/Phase3";
+import "./App.css";
 
 function App() {
-  return null;
+  return (
+    <Router>
+      <Navbar variant="dark" bg="dark" expand="lg">
+        <Navbar.Brand href="#">Register Wizard</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="mr-auto my-2 my-lg-0"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
+            <Nav.Link href="#action1">
+              <Link to="/phase1">Phase 1</Link>
+            </Nav.Link>
+            <Nav.Link href="#action1">
+              <Link to="/phase2">Phase 2</Link>
+            </Nav.Link>
+            <Nav.Link href="#action1">
+              <Link to="/phase3">Phase 3</Link>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <Switch>
+        <Route exact path="/phase1" component={FirstPhase}/>
+        <Route exact path="/phase2" component={Phase2}/>
+        <Route exact path="/phase3" component={Phase3}/>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
-
-{/* <div className="App">
-<header className="App-header">
-  <img src={logo} className="App-logo" alt="logo" />
-  <p>
-    Edit <code>src/App.js</code> and save to reload.
-  </p>
-  <a
-    className="App-link"
-    href="https://reactjs.org"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Learn React
-  </a>
-</header>
-</div> */}

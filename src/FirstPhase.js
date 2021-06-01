@@ -8,7 +8,7 @@ import { useState, useRef } from "react";
 // 2- Email      (required, valid email address)
 // 3- Birth Date (required, dd/MM/yy)
 
-export function FirstPhase() {
+export default function FirstPhase() {
     const formRef = useRef(null);
   const [userData, setUserData] = useState({
     fullName: {
