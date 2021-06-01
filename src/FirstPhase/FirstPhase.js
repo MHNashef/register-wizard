@@ -2,6 +2,7 @@ import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
+import "./FirstPhase.css";
 
 // Phase 1:
 // --------
@@ -16,17 +17,17 @@ export default function FirstPhase() {
     fullName: {
       newValue: "",
       errors: [],
-      isValid: false
+      isValid: false,
     },
     email: {
       newValue: "",
       errors: [],
-      isValid: false
+      isValid: false,
     },
     birth: {
       newValue: "",
       errors: [],
-      isValid: false
+      isValid: false,
     },
   });
 
@@ -68,13 +69,13 @@ export default function FirstPhase() {
           ...userData[name],
           errors: newErrors,
           newValue: value,
-          isValid: true
+          isValid: true,
         },
       });
     }
   };
 
-  const onSubmitHandler = e => e.preventDefault();
+  const onSubmitHandler = (e) => e.preventDefault();
 
   const saveData = ({ fullName, email, birth }) => {
     //   console.log(fullName, email, birth);
@@ -82,15 +83,14 @@ export default function FirstPhase() {
       const newUser = {
         name: fullName.newValue,
         Email: email.newValue,
-        birthDate: birth.newValue
-      }
+        birthDate: birth.newValue,
+      };
       // console.log(newUser);
       localStorage.setItem("user", JSON.stringify(newUser));
       formRef.current.reset();
-      history.push("/phase2");
+      history.push("/second-phase");
     }
-
-  }
+  };
 
   return (
     <div className="container">
@@ -140,9 +140,14 @@ export default function FirstPhase() {
           ))}
         </Form.Group>
         <div className="text-center">
-          <Button variant="primary" type="submit" onClick={() => saveData(userData)}>
+          <Button
+            className="buttonColor"
+            variant="primary"
+            type="submit"
+            onClick={() => saveData(userData)}
+          >
             Next &#10095;
-        </Button>
+          </Button>
         </div>
       </Form>
     </div>

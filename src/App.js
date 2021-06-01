@@ -1,55 +1,24 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import {NavDropdown, Navbar, Nav, Form, FormControl, Button} from "react-bootstrap";
-import WelcomePage from "./WelcomePage";
-import FirstPhase from "./FirstPhase";
-import Phase2 from "./Phase2";
-import Phase3 from "./phase3-components/PhaseThree";
-import CompletionPage from "./phase3-components/CompletionPage"
+import WelcomePage from "./WelcomePage/WelcomePage";
+import FirstPhase from "./FirstPhase/FirstPhase";
+import SecondPhase from "./SecondPhase/SecondPhase";
+import ThirdPhase from "./phase3-components/PhaseThree";
+import CompletionPage from "./phase3-components/CompletionPage";
 import "./App.css";
 
 function App() {
   return (
     <>
-      
       <Router>
         <Switch>
-          <Route exact path="/" component={WelcomePage}/>
-          <Route exact path="/phase1" component={FirstPhase}/>
-          <Route exact path="/phase2" component={Phase2}/>
-          <Route exact path="/phase3" component={Phase3}/>
-          <Route exact path="/successPage" component={CompletionPage} />
+          <Route exact path="/" component={WelcomePage} />
+          <Route exact path="/first-phase" component={FirstPhase} />
+          <Route exact path="/second-phase" component={SecondPhase} />
+          <Route exact path="/third-phase" component={ThirdPhase} />
+          <Route exact path="/success-page" component={CompletionPage} />
         </Switch>
       </Router>
-    
-      {/* <Router>
-      <Navbar variant="dark" bg="dark" expand="lg" className="mb-5">
-        <Navbar.Brand href="#">Register Wizard</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="mr-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">
-              <Link to="/phase1">Phase 1</Link>
-            </Nav.Link>
-            <Nav.Link href="#action1">
-              <Link to="/phase2">Phase 2</Link>
-            </Nav.Link>
-            <Nav.Link href="#action1">
-              <Link to="/phase3">Phase 3</Link>
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      <Switch>
-        <Route exact path="/phase1" component={FirstPhase}/>
-        <Route exact path="/phase2" component={Phase2}/>
-        <Route exact path="/phase3" component={Phase3}/>
-      </Switch>
-    </Router> */}
-  </>
+    </>
   );
 }
 

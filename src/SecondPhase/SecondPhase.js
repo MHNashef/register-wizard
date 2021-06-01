@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Form, Container, Button } from "react-bootstrap";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import "./Phase2.css";
 
-function Phase2() {
+function SecondPhase() {
   const [emptyCityError, setEmptyCityError] = useState(null);
   const [emptyStreetError, setEmptyStreetError] = useState(null);
   const formRef = useRef();
@@ -59,14 +60,14 @@ function Phase2() {
         JSON.stringify({ ...updatedUser, city, street, number })
       );
 
-      history.push("/phase3")
+      history.push("/third-phase");
     } else {
       alert("Make sure to enter a City and Street name");
     }
   }
 
   function prevForm() {
-    history.push("/phase1")
+    history.push("/first-phase");
   }
 
   return (
@@ -112,10 +113,19 @@ function Phase2() {
           </Form.Group>
         </Form>
         <div className="text-center">
-          <Button className="mr-5" variant="primary" onClick={prevForm}>
-            &#10094; Back 
+          <Button
+            className="buttonColor mr-5"
+            variant="primary"
+            onClick={prevForm}
+          >
+            &#10094; Back
           </Button>
-          <Button variant="primary" type="submit" onClick={saveInfo}>
+          <Button
+            className="buttonColor"
+            variant="primary"
+            type="submit"
+            onClick={saveInfo}
+          >
             Next &#10095;
           </Button>
         </div>
@@ -124,4 +134,4 @@ function Phase2() {
   );
 }
 
-export default Phase2;
+export default SecondPhase;
