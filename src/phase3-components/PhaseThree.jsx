@@ -1,7 +1,7 @@
 
 import Hobbies from './Hobbies';
 import Image from './Image';
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container } from 'react-bootstrap';
 import React, { useState, useRef } from 'react';
 
@@ -28,6 +28,7 @@ export default function Phase3() {
     if (componentData.imgURL && componentData.hobbies) {
       sendToLocalStorage(componentData);
       formRef.current.reset();
+      history.push("/successPage");
     } else alertAppropriateError();
   }
 

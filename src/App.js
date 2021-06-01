@@ -1,20 +1,26 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import {NavDropdown, Navbar, Nav, Form, FormControl, Button} from "react-bootstrap";
+// import {NavDropdown, Navbar, Nav, Form, FormControl, Button} from "react-bootstrap";
+import WelcomePage from "./WelcomePage";
 import FirstPhase from "./FirstPhase";
 import Phase2 from "./Phase2";
 import Phase3 from "./phase3-components/PhaseThree";
+import CompletionPage from "./phase3-components/CompletionPage"
 import "./App.css";
 
 function App() {
   return (
     <>
-    <>
+      
       <Router>
-        <Route exact path="/phase1" component={FirstPhase}/>
-        <Route exact path="/phase2" component={Phase2}/>
-        <Route exact path="/phase3" component={Phase3}/>
+        <Switch>
+          <Route exact path="/" component={WelcomePage}/>
+          <Route exact path="/phase1" component={FirstPhase}/>
+          <Route exact path="/phase2" component={Phase2}/>
+          <Route exact path="/phase3" component={Phase3}/>
+          <Route exact path="/successPage" component={CompletionPage} />
+        </Switch>
       </Router>
-    </>
+    
       {/* <Router>
       <Navbar variant="dark" bg="dark" expand="lg" className="mb-5">
         <Navbar.Brand href="#">Register Wizard</Navbar.Brand>
@@ -43,7 +49,7 @@ function App() {
         <Route exact path="/phase3" component={Phase3}/>
       </Switch>
     </Router> */}
-    </>
+  </>
   );
 }
 
