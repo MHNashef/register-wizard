@@ -8,8 +8,6 @@ import React, { useState, useRef } from 'react';
 export default function Phase3() {
   const [componentData, setComponentData] = useState({});
 
-  localStorage.setItem('user', JSON.stringify({ name: 'adrian' })); // for testing - delete after pushing
-
   function getComponentData(key, data) {
     setComponentData({
       ...componentData,
