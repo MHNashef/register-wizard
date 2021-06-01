@@ -1,12 +1,14 @@
 
 import Hobbies from './Hobbies';
 import Image from './Image';
+import {useHistory} from "react-router-dom";
 import { Button, Form, Col } from 'react-bootstrap';
 import React, { useState, useRef } from 'react';
 
 
 export default function Phase3() {
   const [componentData, setComponentData] = useState({});
+  const history = useHistory();
 
   function getComponentData(key, data) {
     setComponentData({
@@ -41,12 +43,16 @@ export default function Phase3() {
 
   const formRef = useRef();
 
+  function prevForm() {
+    history.push("/phase2");
+  }
+
   return (
     <Form ref={formRef}>
       <Col md={3}>
         <Hobbies sendComponentData={getComponentData} />
         <Image sendComponentData={getComponentData} />
-        <Button>Prev</Button>
+        <Button onClick={prevForm}>&#10094; Prev</Button>
         <Button onClick={(event) => { saveData(event) }} type="submit">Submit</Button>
       </Col>
     </Form>
