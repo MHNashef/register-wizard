@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <Navbar variant="dark" bg="dark" expand="lg">
+      <Navbar variant="dark" bg="dark" expand="lg" className="mb-5">
         <Navbar.Brand href="#">Register Wizard</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

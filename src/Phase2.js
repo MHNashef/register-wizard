@@ -83,7 +83,7 @@ function Phase2() {
             <Form.Control
               type="text"
               name="Street"
-              placeholder="Street"
+              placeholder="Enter street"
               onBlur={checkEmpty}
             />
             {emptyStreetError && (
@@ -98,7 +98,7 @@ function Phase2() {
               min="1"
               max="999"
               name="Number"
-              placeholder="Number"
+              placeholder="Enter number"
               onBlur={updateNumValue}
             />
           </Form.Group>
