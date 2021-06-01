@@ -2,7 +2,7 @@
 import Hobbies from './Hobbies';
 import Image from './Image';
 import {useHistory} from "react-router-dom";
-import { Button, Form, Col } from 'react-bootstrap';
+import { Button, Form, Col, Container } from 'react-bootstrap';
 import React, { useState, useRef } from 'react';
 
 
@@ -48,13 +48,13 @@ export default function Phase3() {
   }
 
   return (
-    <Form ref={formRef}>
-      <Col md={3}>
-        <Hobbies sendComponentData={getComponentData} />
-        <Image sendComponentData={getComponentData} />
-        <Button onClick={prevForm}>&#10094; Prev</Button>
-        <Button onClick={(event) => { saveData(event) }} type="submit">Submit</Button>
-      </Col>
-    </Form>
+    <Container>
+      <Form ref={formRef}>
+          <Hobbies sendComponentData={getComponentData} />
+          <Image sendComponentData={getComponentData} />
+          <Button onClick={prevForm}>&#10094; Prev</Button>
+          <Button onClick={(event) => { saveData(event) }} type="submit">Submit</Button>
+      </Form>
+    </Container>
   );
 }
