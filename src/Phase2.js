@@ -50,6 +50,8 @@ function Phase2() {
     if (validation["validCity"] && validation["validStreet"]) {
       formRef.current.reset();
       window.localStorage.setItem("user", JSON.stringify(userInfo));
+    } else {
+      alert("Make sure to enter a City and Street name")
     }
   }
 
