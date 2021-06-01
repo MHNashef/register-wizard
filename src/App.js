@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {NavDropdown, Navbar, Nav, Form, FormControl, Button} from "react-bootstrap";
 import FirstPhase from "./FirstPhase";
 import Phase2 from "./Phase2";
-import Phase3 from "./a-components/Phase3";
+import Phase3 from "./phase3-components/PhaseThree";
 import "./App.css";
 
 function App() {
