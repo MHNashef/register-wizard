@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 
 export default function Hobbies(props) {
-    const hobbies = []; // this should be used when submitting the form
+    const hobbies = [];
 
     function handleChange(event) {
         const newHobbies = event.target.value.split(',');

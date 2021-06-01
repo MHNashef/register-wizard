@@ -46,6 +46,7 @@ export default function Phase3() {
       <Col md={3}>
         <Hobbies sendComponentData={getComponentData} />
         <Image sendComponentData={getComponentData} />
+        <Button>Prev</Button>
         <Button onClick={(event) => { saveData(event) }} type="submit">Submit</Button>
       </Col>
     </Form>
