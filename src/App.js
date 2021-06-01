@@ -8,12 +8,13 @@ import "./App.css";
 function App() {
   return (
     <>
+    <>
       <Router>
         <Route exact path="/phase1" component={FirstPhase}/>
         <Route exact path="/phase2" component={Phase2}/>
         <Route exact path="/phase3" component={Phase3}/>
       </Router>
-
+    </>
       {/* <Router>
       <Navbar variant="dark" bg="dark" expand="lg" className="mb-5">
         <Navbar.Brand href="#">Register Wizard</Navbar.Brand>
