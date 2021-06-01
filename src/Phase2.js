@@ -49,9 +49,15 @@ function Phase2() {
     console.log(userInfo);
     if (validation["validCity"] && validation["validStreet"]) {
       formRef.current.reset();
-      window.localStorage.setItem("user", JSON.stringify(userInfo));
+      const updatedUser = JSON.parse(window.localStorage.getItem("user"));
+      const { city, street, number } = userInfo;
+
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify({ ...updatedUser, city, street, number })
+      );
     } else {
-      alert("Make sure to enter a City and Street name")
+      alert("Make sure to enter a City and Street name");
     }
   }
 
