@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 // Phase 1:
 // --------
@@ -9,18 +9,22 @@ import { useState } from "react";
 // 3- Birth Date (required, dd/MM/yy)
 
 export function FirstPhase() {
+    const formRef = useRef(null);
   const [userData, setUserData] = useState({
     fullName: {
       newValue: "",
       errors: [],
+      isValid: false
     },
     email: {
       newValue: "",
       errors: [],
+      isValid: false
     },
     birth: {
       newValue: "",
       errors: [],
+      isValid: false
     },
   });
 
@@ -47,24 +51,47 @@ export function FirstPhase() {
         newErrors.push("Invalid Email address");
       }
     }
-    setUserData({
-      ...userData,
-      [name]: {
-        ...userData[name],
-        errors: newErrors,
-        newValue: value,
-      },
-    });
+    if (newErrors.length > 0) {
+        setUserData({
+            ...userData,
+            [name]: {
+              ...userData[name],
+              errors: newErrors,
+            },
+          });
+    } else {
+        setUserData({
+            ...userData,
+            [name]: {
+              ...userData[name],
+              errors: newErrors,
+              newValue: value,
+              isValid: true
+            },
+        });
+    }
   };
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
+  const onSubmitHandler = e => e.preventDefault();
+    
+  const saveData = ({fullName, email, birth}) => {
+    //   console.log(fullName, email, birth);
+    if(fullName.isValid && email.isValid && birth.isValid){
+        const newUser = {
+            name: fullName.newValue,
+            Email: email.newValue,
+            birthDate: birth.newValue
+        }
+        // console.log(newUser);
+        localStorage.setItem("user", JSON.stringify(newUser));
+        formRef.current.reset();
+    }
 
   }
 
   return (
     <div className="container">
-      <Form onSubmit={onSubmitHandler}>
+      <Form ref={formRef} onSubmit={onSubmitHandler}>
         <Form.Group className="mb-3">
           <Form.Label>Enter Full name</Form.Label>
           <Form.Control
@@ -110,7 +137,7 @@ export function FirstPhase() {
           ))}
         </Form.Group>
         <div className="text-center">
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={() => saveData(userData)}>
           Submit
         </Button>
         </div>
