@@ -1,7 +1,7 @@
 
 import Hobbies from './Hobbies';
 import Image from './Image';
-import { Button, Form, Col, Alert } from 'react-bootstrap';
+import { Button, Form, Col } from 'react-bootstrap';
 import React, { useState, useRef } from 'react';
 
 
@@ -20,7 +20,6 @@ export default function Phase3() {
     user = JSON.parse(user);
     localStorage.setItem('user', JSON.stringify({ ...user, ...data }));
   }
-
 
   function saveData(event) {
     event.preventDefault();

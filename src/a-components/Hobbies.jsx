@@ -2,14 +2,14 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 
 export default function Hobbies(props) {
-    const fixedTextHobbies = []; // this should be used when submitting the form
+    const hobbies = []; // this should be used when submitting the form
 
     function handleChange(event) {
         const newHobbies = event.target.value.split(',');
         for (const hobby of newHobbies) {
-            fixedTextHobbies.push(hobby.replace(' ', ''))
+            hobbies.push(hobby.replace(' ', ''))
         }
-        props.sendComponentData('hobbies', fixedTextHobbies);
+        props.sendComponentData('hobbies', hobbies);
     }
 
     return (
@@ -18,7 +18,7 @@ export default function Hobbies(props) {
             <Form.Control onChange={(event) => handleChange(event)}
                 type="text"
                 id='hobbies-input'
-                placeholder="hobby 1, hobby 2, etc" />
+                placeholder="Hobby 1, Hobby 2, etc" />
         </Form.Group>
     )
 }
