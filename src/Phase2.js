@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Form, Container, Button } from "react-bootstrap";
 
 function Phase2() {
   const [emptyCityError, setEmptyCityError] = useState(null);
   const [emptyStreetError, setEmptyStreetError] = useState(null);
+  const formRef = useRef();
   const [validation, setValidation] = useState({
     validCity: false,
     validStreet: false,
@@ -47,6 +48,7 @@ function Phase2() {
   function saveInfo() {
     console.log(userInfo);
     if (validation["validCity"] && validation["validStreet"]) {
+      formRef.current.reset();
       window.localStorage.setItem("user", JSON.stringify(userInfo));
     }
   }
@@ -54,7 +56,7 @@ function Phase2() {
   return (
     <>
       <Container>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} ref={formRef}>
           <Form.Group controlId="formBasicCity">
             <Form.Label>City</Form.Label>
             <Form.Control
