@@ -111,12 +111,14 @@ function Phase2() {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={prevForm}>
-          &#10094; Back 
-        </Button>
-        <Button variant="primary" type="submit" onClick={saveInfo}>
-          Next &#10095;
-        </Button>
+        <div className="text-center">
+          <Button className="mr-5" variant="primary" onClick={prevForm}>
+            &#10094; Back 
+          </Button>
+          <Button variant="primary" type="submit" onClick={saveInfo}>
+            Next &#10095;
+          </Button>
+        </div>
       </Container>
     </>
   );

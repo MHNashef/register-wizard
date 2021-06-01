@@ -52,8 +52,10 @@ export default function Phase3() {
       <Form ref={formRef}>
           <Hobbies sendComponentData={getComponentData} />
           <Image sendComponentData={getComponentData} />
-          <Button onClick={prevForm}>&#10094; Prev</Button>
-          <Button onClick={(event) => { saveData(event) }} type="submit">Submit</Button>
+          <div className="text-center">
+            <Button className="mr-5" onClick={prevForm}>&#10094; Prev</Button>
+            <Button onClick={(event) => { saveData(event) }} type="submit">Submit</Button>
+          </div>
       </Form>
     </Container>
   );
