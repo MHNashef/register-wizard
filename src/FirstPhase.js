@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 // Phase 1:
 // --------
@@ -9,6 +10,7 @@ import { useState, useRef } from "react";
 // 3- Birth Date (required, dd/MM/yy)
 
 export default function FirstPhase() {
+  const history = useHistory();
   const formRef = useRef(null);
   const [userData, setUserData] = useState({
     fullName: {
@@ -85,6 +87,7 @@ export default function FirstPhase() {
       // console.log(newUser);
       localStorage.setItem("user", JSON.stringify(newUser));
       formRef.current.reset();
+      history.push("/phase2");
     }
 
   }
@@ -138,7 +141,7 @@ export default function FirstPhase() {
         </Form.Group>
         <div className="text-center">
           <Button variant="primary" type="submit" onClick={() => saveData(userData)}>
-            Submit
+            Next &#10095;
         </Button>
         </div>
       </Form>
