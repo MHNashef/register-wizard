@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Form, Container, Button } from "react-bootstrap";
+import {useHistory} from "react-router-dom";
 
 function Phase2() {
   const [emptyCityError, setEmptyCityError] = useState(null);
@@ -14,6 +15,7 @@ function Phase2() {
     street: "",
     number: "",
   });
+  const history = useHistory();
 
   function checkEmpty({ target: { value, name } }) {
     if (name === "City") {
@@ -56,9 +58,15 @@ function Phase2() {
         "user",
         JSON.stringify({ ...updatedUser, city, street, number })
       );
+
+      history.push("/phase3")
     } else {
       alert("Make sure to enter a City and Street name");
     }
+  }
+
+  function prevForm() {
+    history.push("/phase1")
   }
 
   return (
@@ -103,8 +111,11 @@ function Phase2() {
             />
           </Form.Group>
         </Form>
+        <Button variant="primary" onClick={prevForm}>
+          &#10094; Back 
+        </Button>
         <Button variant="primary" type="submit" onClick={saveInfo}>
-          Submit
+          Next &#10095;
         </Button>
       </Container>
     </>
