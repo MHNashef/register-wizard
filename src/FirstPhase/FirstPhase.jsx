@@ -79,15 +79,6 @@ export default function FirstPhase({ userCnt }) {
       };
       localStorage.setItem(`user_${userCnt}`, JSON.stringify(newUser));
 
-      const completionStatuses = JSON.parse(
-        localStorage.getItem("completionStatuses")
-      );
-      completionStatuses["phaseOne"] = true;
-      localStorage.setItem(
-        "completionStatuses",
-        JSON.stringify(completionStatuses)
-      );
-
       formRef.current.reset();
       history.push("/second-phase");
     }

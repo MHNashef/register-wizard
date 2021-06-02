@@ -9,12 +9,6 @@ import logo from './logo.png';
 import "./App.css";
 
 function App() {
-  localStorage.setItem('completionStatuses', JSON.stringify({
-    phaseOne: false,
-    phaseTwo: false,
-    phaseThree: false
-  }))
-
   const [userCnt, setUserCnt] = useState(0);
 
   return (

@@ -8,16 +8,6 @@ function SecondPhase({userCnt}) {
     history.push("/first-phase");
   }
 
-  // bug - if phase three doesnt pass the validation, its goes back to phase one even though its valid
-  const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
-  function validatePreviousPages() {
-    if (!completionStatuses.phaseOne) {
-      alert("Please finish phase one first");
-      prevForm()
-    }
-  }
-  validatePreviousPages();
-
 
   const [emptyCityError, setEmptyCityError] = useState(null);
   const [emptyStreetError, setEmptyStreetError] = useState(null);
@@ -74,10 +64,6 @@ function SecondPhase({userCnt}) {
         `user_${userCnt}`,
         JSON.stringify({ ...updatedUser, city, street, number })
       );
-
-
-      completionStatuses['phaseTwo'] = true;
-      localStorage.setItem("completionStatuses", JSON.stringify(completionStatuses));
 
       history.push("/third-phase");
     } else {

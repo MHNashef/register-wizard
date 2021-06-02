@@ -13,16 +13,6 @@ export default function Phase3({userCnt}) {
     history.push("/second-phase");
   }
 
-  // phase completion validation
-  const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
-  function validatePreviousPages() {
-    if (!completionStatuses.phaseTwo) {
-      alert("Please finish the previous phases first");
-      prevForm()
-    }
-  }
-  validatePreviousPages();
-
 
   function getComponentData(key, data) {
     setComponentData({
