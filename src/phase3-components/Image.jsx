@@ -5,18 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Image(props) {
   // email validation
   const isValidURL = (urlStr) => {
-    const pattern = ['jpg', 'png', 'gif', '/', '']
-
-    // const pattern = new RegExp(
-    //   "^(https?:\\/\\/)?" + // protocol
-    //   "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-    //   "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-    //   "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-    //   "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-    //   "(\\#[-a-z\\d_]*)?$",
-    //   "i"
-    // ); // fragment locator
-    // return !!pattern.test(urlStr);
+    if (urlStr.length > 1024) {
+      alert('Your link is too long, youre probably using an image from google, please use a shorter link');
+      return false
+    }
+    if (urlStr.match(/\.(jpeg|jpg|gif|png)$/)) {
+      return true;
+    }
   };
 
   const handleChange = (event) => {
