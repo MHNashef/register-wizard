@@ -1,7 +1,7 @@
 import Hobbies from "./Hobbies";
 import Image from "./Image";
 import { useHistory } from "react-router-dom";
-import { Button, Form, Col, Container } from "react-bootstrap";
+import { Button, Form, Col, Container, Card } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import "./PhaseThree.css";
 
@@ -64,7 +64,8 @@ export default function Phase3() {
   const formRef = useRef();
 
   return (
-    <Container>
+    <Card className="mx-auto mt-5 registration-card" style={{width: "25rem"}}>
+      <Card.Body>
       <Form ref={formRef}>
         <Hobbies sendComponentData={getComponentData} />
         <Image sendComponentData={getComponentData} />
@@ -83,6 +84,7 @@ export default function Phase3() {
           </Button>
         </div>
       </Form>
-    </Container>
+      </Card.Body>
+    </Card>
   );
 }

@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
@@ -98,7 +98,9 @@ export default function FirstPhase(props) {
   };
 
   return (
-    <div className="container">
+    // <div className="container">
+    <Card className="mx-auto mt-5 registration-card" style={{width: "25rem"}}>
+    <Card.Body>
       <Form ref={formRef} onSubmit={onSubmitHandler}>
         <Form.Group className="mb-3">
           <Form.Label>Enter Full name</Form.Label>
@@ -155,6 +157,8 @@ export default function FirstPhase(props) {
           </Button>
         </div>
       </Form>
-    </div>
+      </Card.Body>
+      </Card>
+    //  </div> }
   );
 }
