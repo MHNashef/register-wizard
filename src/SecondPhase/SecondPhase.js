@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Form, Container, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import "./Phase2.css";
 
-function Phase2() {
+function SecondPhase() {
   const [emptyCityError, setEmptyCityError] = useState(null);
   const [emptyStreetError, setEmptyStreetError] = useState(null);
   const formRef = useRef();
@@ -14,6 +16,7 @@ function Phase2() {
     street: "",
     number: "",
   });
+  const history = useHistory();
 
   function checkEmpty({ target: { value, name } }) {
     if (name === "City") {
@@ -49,10 +52,22 @@ function Phase2() {
     console.log(userInfo);
     if (validation["validCity"] && validation["validStreet"]) {
       formRef.current.reset();
-      window.localStorage.setItem("user", JSON.stringify(userInfo));
+      const updatedUser = JSON.parse(window.localStorage.getItem("user"));
+      const { city, street, number } = userInfo;
+
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify({ ...updatedUser, city, street, number })
+      );
+
+      history.push("/third-phase");
     } else {
-      alert("Make sure to enter a City and Street name")
+      alert("Make sure to enter a City and Street name");
     }
+  }
+
+  function prevForm() {
+    history.push("/first-phase");
   }
 
   return (
@@ -77,7 +92,7 @@ function Phase2() {
             <Form.Control
               type="text"
               name="Street"
-              placeholder="Street"
+              placeholder="Enter street"
               onBlur={checkEmpty}
             />
             {emptyStreetError && (
@@ -92,17 +107,31 @@ function Phase2() {
               min="1"
               max="999"
               name="Number"
-              placeholder="Number"
+              placeholder="Enter number"
               onBlur={updateNumValue}
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" type="submit" onClick={saveInfo}>
-          Submit
-        </Button>
+        <div className="text-center">
+          <Button
+            className="buttonColor mr-5"
+            variant="primary"
+            onClick={prevForm}
+          >
+            &#10094; Back
+          </Button>
+          <Button
+            className="buttonColor"
+            variant="primary"
+            type="submit"
+            onClick={saveInfo}
+          >
+            Next &#10095;
+          </Button>
+        </div>
       </Container>
     </>
   );
 }
 
-export default Phase2;
+export default SecondPhase;

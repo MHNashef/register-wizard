@@ -1,26 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-import {FirstPhase} from './FirstPhase'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import WelcomePage from "./WelcomePage/WelcomePage";
+import FirstPhase from "./FirstPhase/FirstPhase";
+import SecondPhase from "./SecondPhase/SecondPhase";
+import ThirdPhase from "./phase3-components/PhaseThree";
+import CompletionPage from "./phase3-components/CompletionPage";
+import "./App.css";
 
 function App() {
-  return null;
+  return (
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={WelcomePage} />
+          <Route exact path="/first-phase" component={FirstPhase} />
+          <Route exact path="/second-phase" component={SecondPhase} />
+          <Route exact path="/third-phase" component={ThirdPhase} />
+          <Route exact path="/success-page" component={CompletionPage} />
+        </Switch>
+      </Router>
+    </>
+  );
 }
 
 export default App;
-
-{/* <div className="App">
-<header className="App-header">
-  <img src={logo} className="App-logo" alt="logo" />
-  <p>
-    Edit <code>src/App.js</code> and save to reload.
-  </p>
-  <a
-    className="App-link"
-    href="https://reactjs.org"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Learn React
-  </a>
-</header>
-</div> */}

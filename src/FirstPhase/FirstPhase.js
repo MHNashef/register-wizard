@@ -1,6 +1,8 @@
 import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
+import "./FirstPhase.css";
 
 // Phase 1:
 // --------
@@ -8,23 +10,24 @@ import { useState, useRef } from "react";
 // 2- Email      (required, valid email address)
 // 3- Birth Date (required, dd/MM/yy)
 
-export function FirstPhase() {
-    const formRef = useRef(null);
+export default function FirstPhase() {
+  const history = useHistory();
+  const formRef = useRef(null);
   const [userData, setUserData] = useState({
     fullName: {
       newValue: "",
       errors: [],
-      isValid: false
+      isValid: false,
     },
     email: {
       newValue: "",
       errors: [],
-      isValid: false
+      isValid: false,
     },
     birth: {
       newValue: "",
       errors: [],
-      isValid: false
+      isValid: false,
     },
   });
 
@@ -52,42 +55,42 @@ export function FirstPhase() {
       }
     }
     if (newErrors.length > 0) {
-        setUserData({
-            ...userData,
-            [name]: {
-              ...userData[name],
-              errors: newErrors,
-            },
-          });
+      setUserData({
+        ...userData,
+        [name]: {
+          ...userData[name],
+          errors: newErrors,
+        },
+      });
     } else {
-        setUserData({
-            ...userData,
-            [name]: {
-              ...userData[name],
-              errors: newErrors,
-              newValue: value,
-              isValid: true
-            },
-        });
+      setUserData({
+        ...userData,
+        [name]: {
+          ...userData[name],
+          errors: newErrors,
+          newValue: value,
+          isValid: true,
+        },
+      });
     }
   };
 
-  const onSubmitHandler = e => e.preventDefault();
-    
-  const saveData = ({fullName, email, birth}) => {
-    //   console.log(fullName, email, birth);
-    if(fullName.isValid && email.isValid && birth.isValid){
-        const newUser = {
-            name: fullName.newValue,
-            Email: email.newValue,
-            birthDate: birth.newValue
-        }
-        // console.log(newUser);
-        localStorage.setItem("user", JSON.stringify(newUser));
-        formRef.current.reset();
-    }
+  const onSubmitHandler = (e) => e.preventDefault();
 
-  }
+  const saveData = ({ fullName, email, birth }) => {
+    //   console.log(fullName, email, birth);
+    if (fullName.isValid && email.isValid && birth.isValid) {
+      const newUser = {
+        name: fullName.newValue,
+        Email: email.newValue,
+        birthDate: birth.newValue,
+      };
+      // console.log(newUser);
+      localStorage.setItem("user", JSON.stringify(newUser));
+      formRef.current.reset();
+      history.push("/second-phase");
+    }
+  };
 
   return (
     <div className="container">
@@ -137,9 +140,14 @@ export function FirstPhase() {
           ))}
         </Form.Group>
         <div className="text-center">
-        <Button variant="primary" type="submit" onClick={() => saveData(userData)}>
-          Submit
-        </Button>
+          <Button
+            className="buttonColor"
+            variant="primary"
+            type="submit"
+            onClick={() => saveData(userData)}
+          >
+            Next &#10095;
+          </Button>
         </div>
       </Form>
     </div>
