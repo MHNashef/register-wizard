@@ -99,7 +99,7 @@ export default function FirstPhase({userCnt}) {
 
   return (
     // <div className="container">
-    <Card className="mx-auto mt-5 registration-card" style={{width: "25rem"}}>
+    <Card className="mx-auto registration-card" style={{width: "25rem"}}>
     <Card.Body>
       <Form ref={formRef} onSubmit={onSubmitHandler}>
         <Form.Group className="mb-3">
@@ -136,6 +136,7 @@ export default function FirstPhase({userCnt}) {
           <Form.Label>Birth date</Form.Label>
           <Form.Control
             type="date"
+            max="2008-06-02"
             name="birth"
             required
             onBlur={userValidation}

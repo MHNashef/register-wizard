@@ -90,7 +90,7 @@ function SecondPhase({userCnt}) {
 
   return (
     <>
-      <Card className="mx-auto mt-5 registration-card" style={{width: "25rem"}}>
+      <Card className="mx-auto registration-card" style={{width: "25rem"}}>
         <Card.Body>
         <Form onSubmit={onSubmit} ref={formRef}>
           <Form.Group controlId="formBasicCity">

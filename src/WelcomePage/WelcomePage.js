@@ -11,8 +11,8 @@ export default function WelcomePage() {
   }
 
   return (
-    <div className="vh-100">
-      <div className="d-flex flex-column justify-content-center align-items-center h-100">
+    <div className="mt-5">
+      <div className="text-center">
         <h1 className="mb-4">Welcome to Register Wizard</h1>
         <Button className="buttonColor" onClick={moveToForm}>
           Click to Register
