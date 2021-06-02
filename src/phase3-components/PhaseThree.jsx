@@ -5,7 +5,7 @@ import { Button, Form, Col, Container, Card } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import "./PhaseThree.css";
 
-export default function Phase3() {
+export default function Phase3({userCnt}) {
   const [componentData, setComponentData] = useState({});
 
   const history = useHistory();
@@ -33,13 +33,19 @@ export default function Phase3() {
   }
 
   function sendToLocalStorage(data) {
-    let user = localStorage.getItem("user");
+    let user = localStorage.getItem(`user_${userCnt}`);
     user = JSON.parse(user);
+<<<<<<< HEAD
     localStorage.setItem("user", JSON.stringify({ ...user, ...data }));
 
     const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
     completionStatuses['phaseThree'] = true;
     localStorage.setItem("completionStatuses", JSON.stringify(completionStatuses));
+||||||| a713b31
+    localStorage.setItem("user", JSON.stringify({ ...user, ...data }));
+=======
+    localStorage.setItem(`user_${userCnt}`, JSON.stringify({ ...user, ...data }));
+>>>>>>> localStorage
   }
 
   function saveData(event) {

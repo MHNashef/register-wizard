@@ -3,6 +3,7 @@ import { Form, Container, Button, Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Phase2.css";
 
+<<<<<<< HEAD:src/SecondPhase/SecondPhase.js
 function SecondPhase() {
   const history = useHistory();
   function prevForm() {
@@ -20,6 +21,11 @@ function SecondPhase() {
   validatePreviousPages();
 
 
+||||||| a713b31:src/SecondPhase/SecondPhase.js
+function SecondPhase() {
+=======
+function SecondPhase({userCnt}) {
+>>>>>>> localStorage:src/SecondPhase/SecondPhase.jsx
   const [emptyCityError, setEmptyCityError] = useState(null);
   const [emptyStreetError, setEmptyStreetError] = useState(null);
   const formRef = useRef();
@@ -68,11 +74,11 @@ function SecondPhase() {
     console.log(userInfo);
     if (validation["validCity"] && validation["validStreet"]) {
       formRef.current.reset();
-      const updatedUser = JSON.parse(window.localStorage.getItem("user"));
+      const updatedUser = JSON.parse(window.localStorage.getItem(`user_${userCnt}`));
       const { city, street, number } = userInfo;
 
       window.localStorage.setItem(
-        "user",
+        `user_${userCnt}`,
         JSON.stringify({ ...updatedUser, city, street, number })
       );
 
