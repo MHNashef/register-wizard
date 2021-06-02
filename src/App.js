@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useState } from 'react'
 import WelcomePage from "./WelcomePage/WelcomePage";
 import FirstPhase from "./FirstPhase/FirstPhase";
 import SecondPhase from "./SecondPhase/SecondPhase";
@@ -7,6 +8,12 @@ import CompletionPage from "./phase3-components/CompletionPage";
 import "./App.css";
 
 function App() {
+  localStorage.setItem('completionStatuses', JSON.stringify({
+    phaseOne: false,
+    phaseTwo: false,
+    phaseThree: false
+  }))
+
   return (
     <>
       <Router>

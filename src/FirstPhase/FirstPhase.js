@@ -10,7 +10,7 @@ import "./FirstPhase.css";
 // 2- Email      (required, valid email address)
 // 3- Birth Date (required, dd/MM/yy)
 
-export default function FirstPhase() {
+export default function FirstPhase(props) {
   const history = useHistory();
   const formRef = useRef(null);
   const [userData, setUserData] = useState({
@@ -87,6 +87,11 @@ export default function FirstPhase() {
       };
       // console.log(newUser);
       localStorage.setItem("user", JSON.stringify(newUser));
+
+      const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
+      completionStatuses['phaseOne'] = true;
+      localStorage.setItem("completionStatuses", JSON.stringify(completionStatuses));
+
       formRef.current.reset();
       history.push("/second-phase");
     }

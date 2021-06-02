@@ -7,7 +7,23 @@ import "./PhaseThree.css";
 
 export default function Phase3() {
   const [componentData, setComponentData] = useState({});
+
   const history = useHistory();
+
+  function prevForm() {
+    history.push("/second-phase");
+  }
+
+  // phase completion validation
+  const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
+  function validatePreviousPages() {
+    if (!completionStatuses.phaseTwo) {
+      alert("Please finish the previous phases first");
+      prevForm()
+    }
+  }
+  validatePreviousPages();
+
 
   function getComponentData(key, data) {
     setComponentData({
@@ -20,6 +36,10 @@ export default function Phase3() {
     let user = localStorage.getItem("user");
     user = JSON.parse(user);
     localStorage.setItem("user", JSON.stringify({ ...user, ...data }));
+
+    const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
+    completionStatuses['phaseThree'] = true;
+    localStorage.setItem("completionStatuses", JSON.stringify(completionStatuses));
   }
 
   function saveData(event) {
@@ -42,10 +62,6 @@ export default function Phase3() {
   }
 
   const formRef = useRef();
-
-  function prevForm() {
-    history.push("/second-phase");
-  }
 
   return (
     <Container>
