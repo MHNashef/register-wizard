@@ -22,6 +22,7 @@ body {
   position: relative;
   top: -30px;
 }
-.padding {
-  padding-top: 20px;
+.position {
+  position: relative;
+  top: -60px;
 }
