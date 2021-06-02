@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Form, Container, Button } from "react-bootstrap";
+import { Form, Container, Button, Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Phase2.css";
 
@@ -72,7 +72,8 @@ function SecondPhase() {
 
   return (
     <>
-      <Container>
+      <Card className="mx-auto mt-5 registration-card" style={{width: "25rem"}}>
+        <Card.Body>
         <Form onSubmit={onSubmit} ref={formRef}>
           <Form.Group controlId="formBasicCity">
             <Form.Label>City</Form.Label>
@@ -129,7 +130,8 @@ function SecondPhase() {
             Next &#10095;
           </Button>
         </div>
-      </Container>
+        </Card.Body>
+      </Card>
     </>
   );
 }
