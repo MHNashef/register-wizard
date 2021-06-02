@@ -10,7 +10,7 @@ import "./FirstPhase.css";
 // 2- Email      (required, valid email address)
 // 3- Birth Date (required, dd/MM/yy)
 
-export default function FirstPhase({userCnt}) {
+export default function FirstPhase({ userCnt }) {
   const history = useHistory();
   const formRef = useRef(null);
   const [userData, setUserData] = useState({
@@ -88,9 +88,14 @@ export default function FirstPhase({userCnt}) {
       // console.log(newUser);
       localStorage.setItem(`user_${userCnt}`, JSON.stringify(newUser));
 
-      const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
-      completionStatuses['phaseOne'] = true;
-      localStorage.setItem("completionStatuses", JSON.stringify(completionStatuses));
+      const completionStatuses = JSON.parse(
+        localStorage.getItem("completionStatuses")
+      );
+      completionStatuses["phaseOne"] = true;
+      localStorage.setItem(
+        "completionStatuses",
+        JSON.stringify(completionStatuses)
+      );
 
       formRef.current.reset();
       history.push("/second-phase");
@@ -99,66 +104,66 @@ export default function FirstPhase({userCnt}) {
 
   return (
     // <div className="container">
-    <Card className="mx-auto mt-5 registration-card" style={{width: "25rem"}}>
-    <Card.Body>
-      <Form ref={formRef} onSubmit={onSubmitHandler}>
-        <Form.Group className="mb-3">
-          <Form.Label>Enter Full name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ploni Almoni"
-            required
-            name="fullName"
-            onBlur={userValidation}
-          />
-          {userData.fullName.errors.map((error, idx) => (
-            <Form.Text key={`${idx}`} className="text-danger">
-              {error}
-            </Form.Text>
-          ))}
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="example@wawa.com"
-            required
-            name="email"
-            onBlur={userValidation}
-          />
-          {userData.email.errors.map((error, idx) => (
-            <Form.Text key={`${idx}`} className="text-danger">
-              {error}
-            </Form.Text>
-          ))}
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Birth date</Form.Label>
-          <Form.Control
-            type="date"
-            name="birth"
-            required
-            onBlur={userValidation}
-          />
-          {userData.birth.errors.map((error, idx) => (
-            <Form.Text key={`${idx}`} className="text-danger">
-              {error}
-            </Form.Text>
-          ))}
-        </Form.Group>
-        <div className="text-center">
-          <Button
-            className="buttonColor"
-            variant="primary"
-            type="submit"
-            onClick={() => saveData(userData)}
-          >
-            Next &#10095;
-          </Button>
-        </div>
-      </Form>
+    <Card className="mx-auto mt-5 registration-card" style={{ width: "25rem" }}>
+      <Card.Body>
+        <Form ref={formRef} onSubmit={onSubmitHandler}>
+          <Form.Group className="mb-3">
+            <Form.Label>Enter Full name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ploni Almoni"
+              required
+              name="fullName"
+              onBlur={userValidation}
+            />
+            {userData.fullName.errors.map((error, idx) => (
+              <Form.Text key={`${idx}`} className="text-danger">
+                {error}
+              </Form.Text>
+            ))}
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="example@wawa.com"
+              required
+              name="email"
+              onBlur={userValidation}
+            />
+            {userData.email.errors.map((error, idx) => (
+              <Form.Text key={`${idx}`} className="text-danger">
+                {error}
+              </Form.Text>
+            ))}
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Birth date</Form.Label>
+            <Form.Control
+              type="date"
+              name="birth"
+              required
+              onBlur={userValidation}
+            />
+            {userData.birth.errors.map((error, idx) => (
+              <Form.Text key={`${idx}`} className="text-danger">
+                {error}
+              </Form.Text>
+            ))}
+          </Form.Group>
+          <div className="text-center">
+            <Button
+              className="buttonColor"
+              variant="primary"
+              type="submit"
+              onClick={() => saveData(userData)}
+            >
+              Next &#10095;
+            </Button>
+          </div>
+        </Form>
       </Card.Body>
-      </Card>
+    </Card>
     //  </div> }
   );
 }
