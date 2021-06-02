@@ -1,28 +1,19 @@
 import React from "react";
-<<<<<<< HEAD
-import { Jumbotron, Card } from "react-bootstrap";
-
-export default function CompletionPage() {
-  const userDetails = JSON.parse(window.localStorage.getItem("user"));
-||||||| a713b31
-import { Jumbotron } from "react-bootstrap";
-=======
 import { useHistory } from "react-router-dom";
-import { Jumbotron, Button } from "react-bootstrap";
+import { Jumbotron, Card, Button } from "react-bootstrap";
 
-export default function CompletionPage({setUserCnt}) {
+export default function CompletionPage({userCnt, setUserCnt}) {
   const history = useHistory();
-
+  const userDetails = JSON.parse(window.localStorage.getItem(`user_${userCnt}`));
+  
   function returnHome() {
     setUserCnt(prev => ++prev);
     history.push("/");
   }
->>>>>>> localStorage
 
   return (
     <Jumbotron>
       <h1>Registration Completed!</h1>
-<<<<<<< HEAD
       <Card style={{ width: '21rem' }}>
         <Card.Img variant="top" src={`${userDetails.img}`} />
         <Card.Body>
@@ -36,10 +27,7 @@ export default function CompletionPage({setUserCnt}) {
           </Card.Text>
         </Card.Body>
       </Card>
-||||||| a713b31
-=======
-        <Button onClick={returnHome}>Add New User</Button>
->>>>>>> localStorage
+      <Button onClick={returnHome}>Add New User</Button>
     </Jumbotron>
   );
 }

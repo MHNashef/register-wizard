@@ -3,8 +3,7 @@ import { Form, Container, Button, Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Phase2.css";
 
-<<<<<<< HEAD:src/SecondPhase/SecondPhase.js
-function SecondPhase() {
+function SecondPhase({userCnt}) {
   const history = useHistory();
   function prevForm() {
     history.push("/first-phase");
@@ -21,11 +20,6 @@ function SecondPhase() {
   validatePreviousPages();
 
 
-||||||| a713b31:src/SecondPhase/SecondPhase.js
-function SecondPhase() {
-=======
-function SecondPhase({userCnt}) {
->>>>>>> localStorage:src/SecondPhase/SecondPhase.jsx
   const [emptyCityError, setEmptyCityError] = useState(null);
   const [emptyStreetError, setEmptyStreetError] = useState(null);
   const formRef = useRef();
