@@ -12,22 +12,24 @@ export default function CompletionPage({ userCnt, setUserCnt }) {
   }
 
   return (
-    <Jumbotron>
-      <h1>Registration Complete!</h1>
-      <Card style={{ width: '21rem' }}>
+    <Jumbotron className="padding">
+      <h1 className="text-center">Registration Complete!</h1>
+      <Card className="mx-auto registration-card" style={{ width: '25rem' }}>
         <Card.Img variant="top" src={`${userDetails.imgURL}`} />
         <Card.Body>
           <Card.Title>Your Details - </Card.Title>
           <Card.Text>
             <p>{`Full Name: ${userDetails.name}`}</p>
             <p>{`Email: ${userDetails.Email}`}</p>
-            <p>{`Birthdate: ${userDetails.birthDate}`}</p>
+            <p>{`Birthdate: ${userDetails.birthDate.split("-").reverse().join("-")}`}</p>
             <p>{`Address: ${userDetails.city}, ${userDetails.street} ${userDetails.number}`}</p>
             <p>{`Hobbies: ${userDetails.hobbies}`}</p>
           </Card.Text>
         </Card.Body>
       </Card>
+      <div className="text-center mt-2">
       <Button onClick={returnHome}>Add New User</Button>
+      </div>
     </Jumbotron>
   );
 }

@@ -3,7 +3,6 @@ import Image from "./Image";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container, Card } from "react-bootstrap";
 import React, { useState, useRef } from "react";
-import "./PhaseThree.css";
 
 export default function Phase3({userCnt}) {
   const [componentData, setComponentData] = useState({});

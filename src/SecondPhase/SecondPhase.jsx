@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Form, Container, Button, Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import "./Phase2.css";
 
 function SecondPhase({userCnt}) {
   const history = useHistory();

@@ -2,13 +2,6 @@ import { Form, Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import "./FirstPhase.css";
-
-// Phase 1:
-// --------
-// 1- Name       (required, 2 words (fn + ln), minimum 2 characters each)
-// 2- Email      (required, valid email address)
-// 3- Birth Date (required, dd/MM/yy)
 
 export default function FirstPhase({userCnt}) {
   const history = useHistory();
@@ -78,14 +71,12 @@ export default function FirstPhase({userCnt}) {
   const onSubmitHandler = (e) => e.preventDefault();
 
   const saveData = ({ fullName, email, birth }) => {
-    //   console.log(fullName, email, birth);
     if (fullName.isValid && email.isValid && birth.isValid) {
       const newUser = {
         name: fullName.newValue,
         Email: email.newValue,
         birthDate: birth.newValue,
       };
-      // console.log(newUser);
       localStorage.setItem(`user_${userCnt}`, JSON.stringify(newUser));
 
       const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
@@ -98,7 +89,6 @@ export default function FirstPhase({userCnt}) {
   };
 
   return (
-    // <div className="container">
     <Card className="mx-auto registration-card" style={{width: "25rem"}}>
     <Card.Body>
       <Form ref={formRef} onSubmit={onSubmitHandler}>
@@ -160,6 +150,5 @@ export default function FirstPhase({userCnt}) {
       </Form>
       </Card.Body>
       </Card>
-    //  </div> }
   );
 }
