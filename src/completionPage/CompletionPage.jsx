@@ -10,7 +10,7 @@ export default function CompletionPage({ userCnt, setUserCnt }) {
 
   function returnHome() {
     setUserCnt((prev) => ++prev);
-    history.push("/");
+    history.push("/first-phase");
   }
 
   return (
@@ -58,7 +58,7 @@ export default function CompletionPage({ userCnt, setUserCnt }) {
       </Card>
       <div className="text-center mt-2">
         <Button className="buttonColor" onClick={returnHome}>
-          Add New User
+          Register New User
         </Button>
       </div>
     </>
