@@ -5,7 +5,7 @@ import { Button, Form, Col, Container } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import "./PhaseThree.css";
 
-export default function Phase3() {
+export default function Phase3({userCnt}) {
   const [componentData, setComponentData] = useState({});
   const history = useHistory();
 
@@ -17,9 +17,9 @@ export default function Phase3() {
   }
 
   function sendToLocalStorage(data) {
-    let user = localStorage.getItem("user");
+    let user = localStorage.getItem(`user_${userCnt}`);
     user = JSON.parse(user);
-    localStorage.setItem("user", JSON.stringify({ ...user, ...data }));
+    localStorage.setItem(`user_${userCnt}`, JSON.stringify({ ...user, ...data }));
   }
 
   function saveData(event) {

@@ -3,7 +3,7 @@ import { Form, Container, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Phase2.css";
 
-function SecondPhase() {
+function SecondPhase({userCnt}) {
   const [emptyCityError, setEmptyCityError] = useState(null);
   const [emptyStreetError, setEmptyStreetError] = useState(null);
   const formRef = useRef();
@@ -52,11 +52,11 @@ function SecondPhase() {
     console.log(userInfo);
     if (validation["validCity"] && validation["validStreet"]) {
       formRef.current.reset();
-      const updatedUser = JSON.parse(window.localStorage.getItem("user"));
+      const updatedUser = JSON.parse(window.localStorage.getItem(`user_${userCnt}`));
       const { city, street, number } = userInfo;
 
       window.localStorage.setItem(
-        "user",
+        `user_${userCnt}`,
         JSON.stringify({ ...updatedUser, city, street, number })
       );
 
