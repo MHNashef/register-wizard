@@ -5,15 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Image(props) {
   // email validation
   const isValidURL = (urlStr) => {
-    if (urlStr.length > 1024) {
-      alert(
-        "Your link is too long, youre probably using an image from google, please use a shorter link"
-      );
-      return false;
-    }
-    if (urlStr.match(/\.(jpeg|jpg|gif|png)$/)) {
-      return true;
-    }
+    return (urlStr.match(/\.(jpeg|jpg|gif|png)$/))
   };
 
   const handleChange = (event) => {
