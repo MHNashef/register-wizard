@@ -13,7 +13,7 @@ export default function Phase3({ userCnt }) {
     history.push("/second-phase");
   }
 
-  function getComponentData(key, data) {
+  function getFormData(key, data) {
     setFormData({
       ...formData,
       [key]: data,
@@ -54,8 +54,8 @@ export default function Phase3({ userCnt }) {
     <Card className="mx-auto registration-card" style={{ width: "25rem" }}>
       <Card.Body>
         <Form ref={formRef}>
-          <Hobbies sendComponentData={getComponentData} />
-          <Image sendComponentData={getComponentData} />
+          <Hobbies sendFormData={getFormData} />
+          <Image sendFormData={getFormData} />
           <div className="text-center">
             <Button className="buttonColor mr-5" onClick={prevForm}>
               &#10094; Prev
