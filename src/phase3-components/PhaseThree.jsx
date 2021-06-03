@@ -5,7 +5,7 @@ import { Button, Form, Col, Container, Card } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 
 export default function Phase3({ userCnt }) {
-  const [componentData, setComponentData] = useState({});
+  const [formData, setFormData] = useState({});
 
   const history = useHistory();
 
@@ -14,8 +14,8 @@ export default function Phase3({ userCnt }) {
   }
 
   function getComponentData(key, data) {
-    setComponentData({
-      ...componentData,
+    setFormData({
+      ...formData,
       [key]: data,
     });
   }
@@ -31,19 +31,19 @@ export default function Phase3({ userCnt }) {
 
   function saveData(event) {
     event.preventDefault();
-    if (componentData.imgURL && componentData.hobbies) {
-      sendToLocalStorage(componentData);
+    if (formData.imgURL && formData.hobbies) {
+      sendToLocalStorage(formData);
       formRef.current.reset();
       history.push("/success-page");
     } else alertAppropriateError();
   }
 
   function alertAppropriateError() {
-    if (!componentData.imgURL && !componentData.hobbies) {
+    if (!formData.imgURL && !formData.hobbies) {
       alert("Please fill the form");
-    } else if (!componentData.imgURL) {
+    } else if (!formData.imgURL) {
       alert("Please write a valid URL");
-    } else if (!componentData.hobbies) {
+    } else if (!formData.hobbies) {
       alert("Please write your hobbies");
     }
   }
