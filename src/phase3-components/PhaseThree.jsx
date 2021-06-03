@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container, Card } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 
-export default function Phase3({userCnt}) {
+export default function Phase3({ userCnt }) {
   const [componentData, setComponentData] = useState({});
 
   const history = useHistory();
@@ -12,7 +12,6 @@ export default function Phase3({userCnt}) {
   function prevForm() {
     history.push("/second-phase");
   }
-
 
   function getComponentData(key, data) {
     setComponentData({
@@ -24,11 +23,10 @@ export default function Phase3({userCnt}) {
   function sendToLocalStorage(data) {
     let user = localStorage.getItem(`user_${userCnt}`);
     user = JSON.parse(user);
-    localStorage.setItem(`user_${userCnt}`, JSON.stringify({ ...user, ...data }));
-
-    const completionStatuses = JSON.parse(localStorage.getItem("completionStatuses"))
-    completionStatuses['phaseThree'] = true;
-    localStorage.setItem("completionStatuses", JSON.stringify(completionStatuses));
+    localStorage.setItem(
+      `user_${userCnt}`,
+      JSON.stringify({ ...user, ...data })
+    );
   }
 
   function saveData(event) {
@@ -53,26 +51,26 @@ export default function Phase3({userCnt}) {
   const formRef = useRef();
 
   return (
-    <Card className="mx-auto registration-card" style={{width: "25rem"}}>
+    <Card className="mx-auto registration-card" style={{ width: "25rem" }}>
       <Card.Body>
-      <Form ref={formRef}>
-        <Hobbies sendComponentData={getComponentData} />
-        <Image sendComponentData={getComponentData} />
-        <div className="text-center">
-          <Button className="buttonColor mr-5" onClick={prevForm}>
-            &#10094; Prev
-          </Button>
-          <Button
-            className="buttonColor"
-            onClick={(event) => {
-              saveData(event);
-            }}
-            type="submit"
-          >
-            Submit
-          </Button>
-        </div>
-      </Form>
+        <Form ref={formRef}>
+          <Hobbies sendComponentData={getComponentData} />
+          <Image sendComponentData={getComponentData} />
+          <div className="text-center">
+            <Button className="buttonColor mr-5" onClick={prevForm}>
+              &#10094; Prev
+            </Button>
+            <Button
+              className="buttonColor"
+              onClick={(event) => {
+                saveData(event);
+              }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </div>
+        </Form>
       </Card.Body>
     </Card>
   );

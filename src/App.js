@@ -5,7 +5,7 @@ import FirstPhase from "./FirstPhase/FirstPhase";
 import SecondPhase from "./SecondPhase/SecondPhase";
 import ThirdPhase from "./phase3-components/PhaseThree";
 import CompletionPage from "./completionPage/CompletionPage";
-import logo from './logo.png';
+import logo from "./logo.png";
 import "./App.css";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-    <img id="logo" src={logo} alt="" height="150"/>
+      <img id="logo" src={logo} alt="" height="150" />
       <Router>
         <Switch>
           <Route exact path="/">

@@ -23,36 +23,36 @@ export default function CompletionPage({ userCnt, setUserCnt }) {
         <Card.Body>
           <Card.Title>Your Details </Card.Title>
           <Card.Text>
-            <h6>
+            <p>
               <Badge pill className="badge-bg-color mr-2">
                 Full Name:
               </Badge>
               {userDetails.name}
-            </h6>
-            <h6>
+            </p>
+            <p>
               <Badge pill className="badge-bg-color mr-2">
                 Email:
               </Badge>
               {userDetails.Email}
-            </h6>
-            <h6>
+            </p>
+            <p>
               <Badge pill className="badge-bg-color mr-2">
                 Birthdate:
               </Badge>
               {userDetails.birthDate.split("-").reverse().join("-")}
-            </h6>
-            <h6>
+            </p>
+            <p>
               <Badge pill className="badge-bg-color mr-2">
                 Address:
               </Badge>
               {`${userDetails.city}, ${userDetails.street} ${userDetails.number}`}
-            </h6>
-            <h6>
+            </p>
+            <p>
               <Badge pill className="badge-bg-color mr-2">
                 Hobbies:
               </Badge>
               {userDetails.hobbies}
-            </h6>
+            </p>
           </Card.Text>
         </Card.Body>
       </Card>

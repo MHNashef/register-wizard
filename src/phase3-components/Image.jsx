@@ -6,8 +6,10 @@ export default function Image(props) {
   // email validation
   const isValidURL = (urlStr) => {
     if (urlStr.length > 1024) {
-      alert('Your link is too long, youre probably using an image from google, please use a shorter link');
-      return false
+      alert(
+        "Your link is too long, youre probably using an image from google, please use a shorter link"
+      );
+      return false;
     }
     if (urlStr.match(/\.(jpeg|jpg|gif|png)$/)) {
       return true;
