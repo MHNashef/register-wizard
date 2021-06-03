@@ -7,9 +7,9 @@ export default function Hobbies(props) {
   function handleChange(event) {
     const newHobbies = event.target.value.split(",");
     for (const hobby of newHobbies) {
-      hobbies.push(hobby.replace(" ", ""));
+      hobbies.push(`${hobby}, `);
     }
-    props.sendComponentData("hobbies", hobbies);
+    props.sendFormData("hobbies", hobbies);
   }
 
   return (
